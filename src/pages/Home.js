@@ -2,11 +2,13 @@ import { Box, Flex, Heading, IconButton } from '@chakra-ui/react'
 import React, { useRef, useState } from 'react'
 import BasicDrawer from '../components/drawer/BasicDrawer'
 import SideBar from '../components/drawer/SideBar';
-import { NAVBAR_DATA } from './../data/constants';
+import { FEATURE_PANEL_DATA, NAVBAR_DATA } from './../data/constants';
 import { ArrowRightIcon } from '@chakra-ui/icons'
+import FeaturePanel from '../components/FeaturePanel/FeaturePanel';
 
 function Home() {
   const [isToggled, setIsToggled] = useState(false)
+  const featureData = FEATURE_PANEL_DATA
 
   const handleChange = (value) => {
     setIsToggled(value)
@@ -18,7 +20,6 @@ function Home() {
       <Flex width={45} height={'100%'} bg={'main.white'} align={'center'} justify={'center'}>
         <IconButton
           height={200}
-          aria-label='Search database'
           icon={<ArrowRightIcon />}
           colorScheme={'main.white'}
           color={'main.black'}
@@ -34,9 +35,9 @@ function Home() {
         }
       </Flex>
       
-      <Flex justify='center' align='center' height={'100%'} width={'100%'}>
-        <Flex>
-          <Heading color={'main.white'}> Home Page </Heading>
+      <Flex justify='center' align='center' height={'100%'} width={'100%'} direction='column'>
+        <Flex justify='center' align='center'>
+          <FeaturePanel data={featureData}/>
         </Flex>
       </Flex>
 
