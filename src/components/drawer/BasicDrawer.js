@@ -1,6 +1,7 @@
 import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, Heading, Input, useDisclosure } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import FileUpload from './../FileUploader/FileUpload';
 
 export default function BasicDrawer({ content, isToggled, updater }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -44,6 +45,9 @@ export default function BasicDrawer({ content, isToggled, updater }) {
                             <Heading fontSize={'1.55rem'}>{item.label}</Heading>
                         </Flex>
                         )}
+                        <Flex mt={10} justify='center' align='center'>
+                          <FileUpload />
+                        </Flex>
                 </Flex>
             </DrawerBody>
   

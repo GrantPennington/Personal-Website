@@ -10,7 +10,6 @@ function FeaturePanel({ data }) {
     const isLastElement = current===length
     const isFirstElement = !current
 
-
     const handleForward = () => {
         if(!isLastElement){
             setCurrent(current + 1)
