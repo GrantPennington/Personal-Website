@@ -8,12 +8,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDeXzXF-6tkZmxV5hfiuV0LFCmCNRW6CR0",
-  authDomain: "audio-store-6113e.firebaseapp.com",
-  projectId: "audio-store-6113e",
-  storageBucket: "audio-store-6113e.appspot.com",
-  messagingSenderId: "499188680592",
-  appId: "1:499188680592:web:5843288d7f9a4839195515"
+  apiKey: process.env.REACT_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
