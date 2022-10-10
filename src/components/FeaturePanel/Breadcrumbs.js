@@ -5,7 +5,7 @@ import Crumb from './Crumb';
 function Breadcrumbs({ data, current }) {
 
     return (
-        <Flex width={200} height={45} align='center' justify={'space-evenly'} mt={6}>
+        <Flex width={150} height={45} align='center' justify={'space-evenly'} mt={6}>
             {data.map((item, index) => 
                 <Crumb id={item.id} index={index} current={current}/>
             )}

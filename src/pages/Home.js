@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, IconButton, Text } from '@chakra-ui/react'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import BasicDrawer from '../components/drawer/BasicDrawer'
 import SideBar from '../components/drawer/SideBar';
 import { FEATURE_PANEL_DATA, NAVBAR_DATA } from './../data/constants';
@@ -8,6 +8,7 @@ import FeaturePanel from '../components/FeaturePanel/FeaturePanel';
 import { app, storage } from './../firebase.js';
 import FileUpload from '../components/FileUploader/FileUpload';
 import { useAudioFile } from './../context/AudioFileContext';
+import { readFromDb } from '../data/db';
 
 function Home() {
   const [isToggled, setIsToggled] = useState(false)
@@ -41,20 +42,24 @@ function Home() {
       
       <Flex justify='center' align='center' height={'100%'} width={'100%'} direction='column'>
         <Flex justify='center' align='center'>
-          <FeaturePanel data={featureData}/>
+          <FeaturePanel data={files}/>
         </Flex>
       </Flex>
-      <Flex justify='center' align='center' direction='column'>
-          {files.map((file, index) => 
-            <>
-            <Text color={'main.white'}>{`File: ${file.filename}`}</Text>
-            <Text color={'main.white'}>{`URL: ${file.url}`}</Text>
-            </>
-          )}
-        </Flex>
-      {/*<pre>{JSON.stringify(firebaseApp.options, null, 2)}</pre>*/}
     </Flex>
   )
 }
 
 export default Home
+
+
+/*
+
+<Flex justify='center' align='center' direction='column'>
+          {files.map((file, index) => 
+            <Flex justify={'center'} align='center' direction={'column'} p={6}>
+              <Text color={'main.white'}>{`File: ${file.song}`}</Text>
+              <Text color={'main.white'}>{`URL: ${file.url}`}</Text>
+            </Flex>
+          )}
+        </Flex>
+*/

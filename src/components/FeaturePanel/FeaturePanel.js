@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Flex, Heading, IconButton, Box } from '@chakra-ui/react';
+import { Flex, Heading, IconButton, Box, Text } from '@chakra-ui/react';
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import Breadcrumbs from './Breadcrumbs';
 
@@ -40,8 +40,16 @@ function FeaturePanel({ data }) {
                 }
             </Flex>
 
-            <Flex width={1000} bg={'main.white'} height={600} justify={'center'} align='center' borderRadius={'md'}>
-                <Heading> {data[current].label} </Heading>
+            <Flex width={1000} bg={'main.white'} height={600} justify={'center'} align='center' borderRadius={'md'} direction='column'>
+                <Flex>
+                    <Heading> {data[current]?.song.substring(0, data[current]?.song.length-4)} </Heading>
+                </Flex>
+                <Flex>
+                    <Text fontSize={'1.25rem'} fontWeight={'thin'}>Grant Pennington</Text>
+                </Flex>
+                <Flex>
+                    <Text mt={3}>{data[current]?.url}</Text>
+                </Flex>
             </Flex>
 
             <Flex>

@@ -3,6 +3,7 @@ import { app, storage } from './../../firebase';
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { Button, Box } from '@chakra-ui/react';
 import { useAudioFile } from './../../context/AudioFileContext';
+import { writeToDb } from './../../data/db';
 
 function FileUpload(){
 	const [selectedFile, setSelectedFile] = useState();
@@ -31,7 +32,8 @@ function FileUpload(){
         },
         () => {
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                addFile(file.name, downloadURL)
+                //addFile(file.name, downloadURL)
+				writeToDb(file.name, downloadURL)
                 //console.log(downloadURL) //setURL(downloadURL)
             });
         }
