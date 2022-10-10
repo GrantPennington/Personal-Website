@@ -1,5 +1,6 @@
 import React from 'react'
 import { AudioFileProvider } from './context/AudioFileContext';
+import { PlayerProvider } from './context/PlayerContext';
 import PageRouter from "./PageRouter";
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
   return (
     <>
       <AudioFileProvider>
-        <PageRouter /> {/* page router handles all routes */}
+        <PlayerProvider>
+          <PageRouter /> {/* page router handles all routes */}
+        </PlayerProvider>
       </AudioFileProvider>
     </>
   );
